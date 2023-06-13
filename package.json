@@ -8,6 +8,11 @@
     "dev": "vite",
     "build": "vite build"
   },
+  "homepage": "https://github.com/wch360119203/utils",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wch360119203/utils.git"
+  },
   "keywords": [],
   "author": "",
   "license": "LGPL",
