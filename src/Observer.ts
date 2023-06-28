@@ -8,7 +8,7 @@ export default class Observer<T extends Record<string, bindFun>> {
   public dispatch<K extends keyof T>(name: K, ...args: Parameters<T[K]>) {
     const targetFnList = this._map.get(name)
     if (targetFnList) {
-      targetFnList.forEach(fun => {
+      targetFnList.forEach((fun) => {
         fun(...args)
       })
     }
@@ -27,6 +27,16 @@ export default class Observer<T extends Record<string, bindFun>> {
     }
     if (rmSymbol) this.rmMapAdd(name, fn, rmSymbol)
     return this
+  }
+  /**绑定单次事件 */
+  public once<K extends keyof T>(name: K, fn: T[K]) {
+    const symb = Symbol()
+    // @ts-ignore
+    const onceFn: T[K] = (...args: Parameters<T[K]>) => {
+      this.offBySymbol(symb)
+      fn(...args)
+    }
+    this.on(name, onceFn, symb)
   }
   /**登记待移除的事件 */
   private rmMapAdd<K extends keyof T>(name: K, fn: T[K], rmSymbol: symbol) {
