@@ -2,7 +2,7 @@
   "name": "@wuch96/utils",
   "private": false,
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "",
   "scripts": {
     "dev": "vite",
@@ -36,5 +36,8 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@types/geojson": "^7946.0.10"
   }
 }

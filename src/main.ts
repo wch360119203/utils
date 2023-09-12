@@ -1,4 +1,4 @@
 import { IntervalEx } from './IntervalRegister'
 import Observer from './Observer'
-export { Observer }
-export { IntervalEx }
+import * as geojsonUtils from './geojsonUtils'
+export { Observer, IntervalEx, geojsonUtils }
